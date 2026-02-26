@@ -5,10 +5,10 @@ import 'package:ecommerce/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main()
-{
+void main() {
   runApp(EcommerceApp());
 }
+
 class EcommerceApp extends StatelessWidget {
   const EcommerceApp({super.key});
 
@@ -17,14 +17,12 @@ class EcommerceApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-       HomeScreen.routeName:(_)=>HomeScreen(),
-       CartEmptyScreen.routeName:(_)=>CartEmptyScreen(),
-       CartFullScreen.routeName:(_)=>CartFullScreen()
-
+        HomeScreen.routeName: (_) => HomeScreen(),
+        CartEmptyScreen.routeName: (_) => CartEmptyScreen(),
+        CartFullScreen.routeName: (_) => CartFullScreen(),
       },
       initialRoute: HomeScreen.routeName,
-         theme: AppTheme.lightTheme,
-        
+      theme: AppTheme.lightTheme,
     );
   }
 }
