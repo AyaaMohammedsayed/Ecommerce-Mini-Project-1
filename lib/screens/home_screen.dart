@@ -53,10 +53,10 @@ class HomeScreen extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("ShopHub"), 
+            Text("ShopHub", style: TextStyle(color: Colors.black),), 
             Text(
               "Fresh picks daily", 
-              style: TextStyle(color: Colors.grey.shade500, fontSize: 10)
+              style: TextStyle(color: Color(0xFF009688), fontSize: 10)
             ),
           ],
         ),
