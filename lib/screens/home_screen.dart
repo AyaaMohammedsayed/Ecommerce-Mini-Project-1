@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.home, color: primaryColor),
           ),
           IconButton(
-            onPressed: () => print("Nav to Cart"),  // add navigation to cart
+            onPressed: () => Navigator.pushNamed(context, CartEmptyScreen.routeName), 
             icon: const Icon(Icons.shopping_cart_outlined, color: Colors.grey),
           ),
           const SizedBox(width: 10),
