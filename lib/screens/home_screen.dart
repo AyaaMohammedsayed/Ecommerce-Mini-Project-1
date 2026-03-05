@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ecommerce/screens/cart_empty_screen.dart';
 class HomeScreen extends StatelessWidget {
   static const String routeName = 'home';
 
@@ -53,10 +53,10 @@ class HomeScreen extends StatelessWidget {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("ShopHub"), 
+            Text("ShopHub", style: TextStyle(color: Colors.black),), 
             Text(
               "Fresh picks daily", 
-              style: TextStyle(color: Colors.grey.shade500, fontSize: 10)
+              style: TextStyle(color: Color(0xFF009688), fontSize: 10)
             ),
           ],
         ),
@@ -66,14 +66,52 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.home, color: primaryColor),
           ),
           IconButton(
-            onPressed: () => print("Nav to Cart"),  // add navigation to cart
+            onPressed: () => Navigator.pushNamed(context, CartEmptyScreen.routeName), 
             icon: const Icon(Icons.shopping_cart_outlined, color: Colors.grey),
           ),
           const SizedBox(width: 10),
         ],
       ),
       
-      drawer: const Drawer(),
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.6,
+        child: Drawer(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 90,
+                color: const Color(0xFF009688),
+                padding: const EdgeInsets.only(left: 20, bottom: 25),
+                alignment: Alignment.bottomLeft,
+                child: Text('Menu', style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
+                ),
+              ),
+              SizedBox(height: 10),
+              ListTile(
+                leading: Icon(Icons.home_outlined, color: Color(0xFF009688),),
+                title: Text('Home', style: TextStyle(color: Colors.black, fontSize: 16),),
+                onTap: () => Navigator.pop(context),
+              ),
+              
+              ListTile(
+                leading: Icon(Icons.shopping_cart_outlined, color: Color(0xFF009688),),
+                title: Text('Cart', style: TextStyle(color: Colors.black, fontSize: 16),),
+                onTap: (){
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, CartEmptyScreen.routeName);
+                  
+                }
+                )
+              
+          ],) ,
+        ),
+      ),
       
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
