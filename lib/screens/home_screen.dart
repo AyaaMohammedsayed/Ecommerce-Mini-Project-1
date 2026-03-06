@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/screens/cart_empty_screen.dart';
+import 'package:ecommerce/screens/cart_full_screen.dart';
+import 'package:ecommerce/screens/cart_manager.dart';
 class HomeScreen extends StatelessWidget {
   static const String routeName = 'home';
 
@@ -43,7 +45,13 @@ class HomeScreen extends StatelessWidget {
       "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
     },
   ];
-
+void _navigateToCart(BuildContext context) {
+  if (CartManager.selectedItems.isEmpty) {
+    Navigator.pushNamed(context, CartEmptyScreen.routeName);
+  } else {
+    Navigator.pushNamed(context, CartFullScreen.routeName);
+  }
+}
   @override
   Widget build(BuildContext context) {
     final Color primaryColor = Theme.of(context).primaryColor;
@@ -66,7 +74,7 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.home, color: primaryColor),
           ),
           IconButton(
-            onPressed: () => Navigator.pushNamed(context, CartEmptyScreen.routeName), 
+            onPressed: () => _navigateToCart(context),
             icon: const Icon(Icons.shopping_cart_outlined, color: Colors.grey),
           ),
           const SizedBox(width: 10),
@@ -104,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                 title: Text('Cart', style: TextStyle(color: Colors.black, fontSize: 16),),
                 onTap: (){
                   Navigator.pop(context);
-                  Navigator.pushNamed(context, CartEmptyScreen.routeName);
+                  _navigateToCart(context);
                   
                 }
                 )
@@ -219,6 +227,7 @@ class HomeScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
+                      CartManager.addProduct(product);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("${product['name']} added!"),
