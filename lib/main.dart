@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/app_theme.dart';
 import 'package:ecommerce/screens/cart_empty_screen.dart';
 import 'package:ecommerce/screens/cart_full_screen.dart';
+import 'package:ecommerce/screens/cart_manager.dart';
 import 'package:ecommerce/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
