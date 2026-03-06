@@ -1,13 +1,17 @@
 import 'package:ecommerce/core/app_theme.dart';
-import 'package:ecommerce/screens/cart_empty_screen.dart';
-import 'package:ecommerce/screens/cart_full_screen.dart';
-import 'package:ecommerce/screens/cart_manager.dart';
-import 'package:ecommerce/screens/home_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce/core/provider/products_provider.dart';
+import 'package:ecommerce/features/cart/presentation/screens/cart_empty_screen.dart';
+import 'package:ecommerce/features/cart/presentation/screens/cart_full_screen.dart';
+import 'package:ecommerce/features/cart/presentation/screens/cart_manager.dart';
+import 'package:ecommerce/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(EcommerceApp());
+  runApp(ChangeNotifierProvider(
+    
+    create: (context)=>ProductsProvider(),
+    child: EcommerceApp()));
 }
 
 class EcommerceApp extends StatelessWidget {
@@ -21,6 +25,7 @@ class EcommerceApp extends StatelessWidget {
         HomeScreen.routeName: (_) => HomeScreen(),
         CartEmptyScreen.routeName: (_) => CartEmptyScreen(),
         CartFullScreen.routeName: (_) => CartFullScreen(),
+        CartManager.routeName:(_)=>CartManager()
       },
       initialRoute: HomeScreen.routeName,
       theme: AppTheme.lightTheme,
