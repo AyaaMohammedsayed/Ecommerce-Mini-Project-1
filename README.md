@@ -39,7 +39,7 @@ lib/
 |-----------------|----------------------------------------------------------------------------|
 | Aya Mohamed      | Provider & Cart Full Screen logic, Product models, MVVM architecture       |
 | Menna Elbanna    | Cart Empty Screen UI, Drawer                                               |
-| Mariel & Robert  | Cart Full Screen UI                                                         |
+| Mariel  Robert  | Cart Full Screen UI                                                         |
 | Jana Hagras      | Home Screen UI                                                              |
 | Fatma Abdelsalam             | Home Screen Logic                                                           |
 
